@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QubeHealth</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/green.css">
+    <script src="./assets/js/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper bg-soft-primary">
+            <nav class="navbar navbar-expand-lg center-nav transparent position-absolute navbar-dark caret-none">
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100">
+                        <a href="./index.html">
+                            <img class="logo-dark" src="./assets/img/logo.svg" srcset="./assets/img/logo.svg" alt="" />
+                            <img class="logo-light" src="./assets/img/logo-light.svg"
+                                srcset="./assets/img/logo-light.svg" alt="" />
+                        </a>
+                    </div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <h3 class="text-white fs-30 mb-0">QubeCrew</h3>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="careers.html">Join the #QubeCrew</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="partners.html">Healthcare Provider Partners</a>
+                                </li>
+                            </ul>
+                            <!-- /.navbar-nav -->
+                            <div class="offcanvas-footer d-lg-none">
+                                <div>
+                                    <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a>
+                                    <br /> 00 (123) 456 78 90 <br />
+                                    <nav class="nav social social-white mt-4">
+                                        <a href="#"><i class="uil uil-twitter"></i></a>
+                                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                        <a href="#"><i class="uil uil-dribbble"></i></a>
+                                        <a href="#"><i class="uil uil-instagram"></i></a>
+                                        <a href="#"><i class="uil uil-youtube"></i></a>
+                                    </nav>
+                                    <!-- /.social -->
+                                </div>
+                            </div>
+                            <!-- /.offcanvas-footer -->
+                        </div>
+                        <!-- /.offcanvas-body -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="navbar-other ms-lg-4">
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item d-none d-md-block">
+                                <a href="https://www.qubehealth.com/login" target="_blank" class="btn btn-sm btn-primary rounded-pill">Employer Login</a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                            </li>
+                        </ul>
+                        <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+        </header>
+        <!-- /header -->
+        <section class="wrapper bg-dark">
+            <div class="swiper-container swiper-hero dots-over" data-margin="0" data-autoplay="true"
+                data-autoplaytime="7000" data-nav="true" data-dots="true" data-items="1">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide bg-image" data-image-src="./assets/img/slider-1.png">
+                            <div class="container h-100">
+                                <div class="row h-100">
+                                    <div
+                                        class="col-md-10 offset-md-1 col-lg-7 offset-lg-0 col-xl-6 col-xxl-7 text-center text-lg-start justify-content-center align-self-center align-items-start">
+                                        <h2
+                                            class="display-1 fs-56 mb-4 text-white animate__animated animate__slideInDown animate__delay-1s">
+                                            Help your team pay <br /> their healthcare bills.</h2>
+                                        <p
+                                            class="lead fs-23 lh-sm mb-7 text-white animate__animated animate__slideInRight animate__delay-2s">
+                                            How do your employee pay bills not covered by their health insurance?
+                                            <strong> Give
+                                                them a healthcare credit line.</strong> <br>Instant money & no-Cost
+                                            payback in up to a
+                                            year. </p>
+                                        <div class="animate__animated animate__slideInUp animate__delay-3s"><a href="#"
+                                                class="btn btn-lg btn-outline-white rounded-pill" data-bs-toggle="modal"
+                                                data-bs-target="#modal-02">Know More</a></div>
+                                    </div>
+                                    <!--/column -->
+                                </div>
+                                <!--/.row -->
+                            </div>
+                            <!--/.container -->
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide bg-image" data-image-src="./assets/img/slider-2.png">
+                            <div class="container h-100">
+                                <div class="row h-100">
+                                    <div
+                                        class="col-md-12 col-lg-9 col-xl-8 col-xxl-7 mx-auto text-center justify-content-center align-self-center">
+                                        <h2
+                                            class="display-1 fs-56 mb-4 text-white animate__animated animate__slideInDown animate__delay-1s">
+                                            Take control <br />
+                                            of your family’s healthcare.</h2>
+                                        <p
+                                            class="lead fs-23 lh-sm mb-7 text-white animate__animated animate__slideInRight animate__delay-2s">
+                                            No-cost money. Guaranteed cash backs. </p>
+                                        <div class="animate__animated animate__slideInUp animate__delay-3s"><a
+                                                href="https://www.youtube.com/watch?v=eyEIumkq1yE"
+                                                class="btn btn-circle btn-white btn-play ripple mx-auto mb-5"
+                                                data-glightbox><i class="icn-caret-right"></i></a></div>
+                                    </div>
+                                    <!--/column -->
+                                </div>
+                                <!--/.row -->
+                            </div>
+                            <!--/.container -->
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide bg-image" data-image-src="./assets/img/slider-3.png">
+                            <div class="container h-100">
+                                <div class="row h-100">
+                                    <div
+                                        class="col-md-11 offset-md-1 col-lg-8 offset-lg-4 col-xl-7 offset-xl-5 col-xxl-6 offset-xxl-6 text-center text-lg-end justify-content-center align-self-center align-items-start">
+                                        <h2
+                                            class="display-1 fs-56 mb-4 text-white animate__animated animate__slideInDown animate__delay-1s">
+                                            Largest network of healthcare providers </h2>
+                                        <p
+                                            class="lead fs-23 lh-sm mb-7 text-white animate__animated animate__slideInRight animate__delay-2s">
+                                            Partner with us and showcase your hospital or clinic to quality corporate
+                                            employees across India.<br> Financed by QubeHealth </p>
+                                        <div class="animate__animated animate__slideInUp animate__delay-3s"><a href="partners.html#partnersForm"
+                                                class="btn btn-lg btn-outline-white rounded-pill">Contact Us</a></div>
+                                    </div>
+                                    <!--/column -->
+                                </div>
+                                <!--/.row -->
+                            </div>
+                            <!--/.container -->
+                        </div>
+                        <!--/.swiper-slide -->
+                    </div>
+                    <!--/.swiper-wrapper -->
+                </div>
+                <!-- /.swiper -->
+            </div>
+            <!-- /.swiper-container -->
+        </section>
+        <!-- /section -->
+
+        <section class="wrapper bg-light">
+            <div class="py-14">
+                <p class="text-center mb-8">Only available through these employers</p>
+                <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true"
+                    data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7"
+                    data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
+                    <div class="swiper">
+                        <div class="swiper-wrapper ticker">
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc1.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc2.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc3.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc4.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc5.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc6.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc7.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc8.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc9.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc10.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc11.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc12.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc13.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc14.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc15.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc16.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc17.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc18.png" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="./assets/img/brands/hc19.png" alt="" /></div>
+                        </div>
+                        <!--/.swiper-wrapper -->
+                    </div>
+                    <!-- /.swiper -->
+                </div>
+                <!-- /.swiper-container -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+
+        <section class="wrapper bg-light">
+            <div class="container py-14" style="padding-top: 10px !important;">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6 position-relative">
+                        <div class="shape rounded bg-pale-green rellax d-md-block" data-rellax-speed="0"
+                            style="top: 50%; left: 50%; width: 50%; height: 60%; transform: translate(-50%,-50%);z-index:0">
+                        </div>
+                        <div class="row gx-md-5 gy-5 position-relative">
+                            <div class="col-6">
+                                <img class="img-fluid rounded shadow-lg mb-5" src="./assets/img/g2.jpeg"
+                                    srcset="./assets/img/g2.jpeg" alt="" />
+                                <img class="img-fluid rounded shadow-lg d-flex col-10 ms-auto" src="./assets/img/g3.png"
+                                    srcset="./assets/img/g3.png" alt="" />
+                            </div>
+                            <!-- /column -->
+                            <div class="col-6">
+                                <img class="img-fluid rounded shadow-lg my-5" src="./assets/img/g1.jpg"
+                                    srcset="./assets/img/g1.jpg" alt="" />
+                                <img class="img-fluid rounded shadow-lg d-flex col-10" src="./assets/img/g4.png"
+                                    srcset="./assets/img/g4.png" alt="" />
+                            </div>
+                            <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-6">
+                        <h3 class="display-4 mb-5">Qube is a smarter way to pay any medical bill.</h3>
+                        <p class="mb-5">Routine medical expenses like medicines, doctor visits or health checks, are as
+                            expensive as any emergency medical bill. Why use your own money or borrow through credit
+                            cards or personal loans, when Qube is free? </p>
+                        <div class="row gy-3">
+                            <div class="col-xl-6">
+                                <ul class="icon-list bullet-bg bullet-soft-green mb-0">
+                                    <li><span><i class="uil uil-check"></i></span><span>Pay any health or medical bill.
+                                            Emergency or routine. </span></li>
+                                    <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Choose a no-cost
+                                            payback EMI as per your convenience.</span></li>
+                                </ul>
+                            </div>
+                            <!--/column -->
+                            <div class="col-xl-6">
+                                <ul class="icon-list bullet-bg bullet-soft-green mb-0">
+                                    <li><span><i class="uil uil-check"></i></span><span>Pay any healthcare provider,
+                                            Hospital, Clinic or Doctor.</span></li>
+                                    <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Get discount
+                                            cash-backs on every payment.</span></li>
+                                </ul>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container py-7">
+                <div class="row text-center">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="position-relative">
+                            <div class="shape qube-shape rellax w-16 h-16" data-rellax-speed="0"
+                                style="top: -2.5rem; left: -3rem;"></div>
+                            <div class="shape qube-shape rellax w-16 h-16" data-rellax-speed="0"
+                                style="bottom: -2.5rem; right: -3rem;"></div>
+                            <video poster="./assets/img/v-bg.png" class="player" playsinline controls preload="none">
+                                 <source src="./assets/media/qh-movie.mp4" type="video/mp4">
+                               <!-- <source src="./assets/media/movie.webm" type="video/webm"> 
+                                <source src="https://www.youtube.com/watch?v=Iubl1LTG6nE" > -->
+                            </video>
+                        </div>
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+        <section class="wrapper bg-light">
+            <div class="container py-14">
+                <!-- /.row -->
+                <div class="row gx-md-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="card boxList me-lg-6">
+                            <div class="card-body p-6">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                class="number">01</span></span>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-1">Talk to your HR</h4>
+                                        <p class="mb-0">Your employer will sign you up & set up your account.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                        <div class="card boxList ms-lg-13 mt-6">
+                            <div class="card-body p-6">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                class="number">02</span></span>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-1">Download & Activate</h4>
+                                        <p class="mb-0">Download, login through OTP & complete your KYC.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                        <div class="card boxList mx-lg-6 mt-6">
+                            <div class="card-body p-6">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                class="number">03</span></span>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-1">Start Using</h4>
+                                        <p class="mb-0">Borrow, as you need at no-cost. Pay & earn cash backs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-6">
+                        <h2 class="display-6 mb-3">How It Works?</h2>
+                        <p class="lead fs-lg pe-lg-5">Qube is available, only through the company you work for.
+                            They pay your subscription fee.</p>
+                        <p>Companies that care about their employees, across India, are providing Qube, as an add-on, to
+                            their company-paid health insurance program (“group medical insurance”). </p>
+                        <p class="mb-6">Your company HR sets up your Qube Account, and you activate your credit line,
+                            and payment system, by downloading the Qube App. Activation is simple, and takes less than 5
+                            minutes.</p>
+                        <!-- <a href="#" class="btn btn-primary rounded-pill mb-0">Learn More</a> -->
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container py-7" style="padding-top: 0px !important;">
+                <div class="row gx-xl-12 gy-10">
+                    <div class="col-xl-4">
+                        <h2 class="display-4 mt-10 mb-3">Love for Qube.</h2>
+                        <p class="lead fs-lg mb-6"> No-cost money on tap.
+                            Cash backs on every payment.
+                            What’s not to love? </p>
+                        <!-- <a href="#" class="btn btn-primary rounded-pill"> View All </a> -->
+                    </div>
+                    <!-- /column -->
+                    <div class="col-xl-8">
+                        <div class="position-relative">
+                            <div class="shape qube-shape rellax w-16 h-16" data-rellax-speed="0"
+                                style="top: -1.7rem; right: -2.3rem;"></div>
+                            <div class="shape qube-shape rellax w-16 h-16" data-rellax-speed="0"
+                                style="bottom: -2.1rem; left: -2.1rem;"></div>
+                            <div class="swiper-container dots-closer mb-6" data-margin="0" data-dots="true"
+                                data-items-md="2" data-items-xs="1">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="item-inner">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <blockquote class="icon mb-0">
+                                                            <p>“It was shocking how much money I was spending on my
+                                                                credit cards for small medical expenses. No-cost money
+                                                                on tap to pay for major or minor medical expenses is
+                                                                such a relief.”</p>
+                                                            <div class="blockquote-details">
+                                                                <img class="rounded-circle w-12"
+                                                                    src="./assets/img/Nikita.jpg"
+                                                                    srcset="./assets/img/Nikita.jpg" alt="" />
+                                                                <div class="info">
+                                                                    <h5 class="mb-1">Nikita J.</h5>
+                                                                    <p class="mb-0">Mumbai</p>
+                                                                </div>
+                                                            </div>
+                                                        </blockquote>
+                                                    </div>
+                                                    <!--/.card-body -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.item-inner -->
+                                        </div>
+                                        <!--/.swiper-slide -->
+                                        <div class="swiper-slide">
+                                            <div class="item-inner">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <blockquote class="icon mb-0">
+                                                            <p>“Our employees were using their Credit Cards or small
+                                                                personal loans to pay for everyday medical expenses &
+                                                                medical emergencies. Now, they just tap into
+                                                                QubeHealth-Credit.”</p>
+                                                            <div class="blockquote-details">
+                                                                <img class="rounded-circle w-12"
+                                                                    src="./assets/img/pragun.png"
+                                                                    srcset="./assets/img/pragun.png" alt="" />
+                                                                <div class="info">
+                                                                    <h5 class="mb-1">Akshay N.</h5>
+                                                                    <p class="mb-0">Mumbai</p>
+                                                                </div>
+                                                            </div>
+                                                        </blockquote>
+                                                    </div>
+                                                    <!--/.card-body -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.item-inner -->
+                                        </div>
+                                        <!--/.swiper-slide -->
+                                        <div class="swiper-slide">
+                                            <div class="item-inner">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <blockquote class="icon mb-0">
+                                                            <p style="font-size: 0.812rem;" >“When I found out that my mother may have cancer, the first though in my mind, was, I need to arrange money urgently. My insurance was not enough. That’s when I realized the value of Qube.”</p>
+                                                            <div class="blockquote-details">
+                                                                <img class="rounded-circle w-12"
+                                                                    src="./assets/img/Amit.png"
+                                                                    srcset="./assets/img/Amit.png" alt="" />
+                                                                <div class="info">
+                                                                    <h5 class="mb-1">Amit M.</h5>
+                                                                    <p class="mb-0">Pune</p>
+                                                                </div>
+                                                            </div>
+                                                        </blockquote>
+                                                    </div>
+                                                    <!--/.card-body -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.item-inner -->
+                                        </div>
+                                        <!--/.swiper-slide -->
+                                        <div class="swiper-slide">
+                                            <div class="item-inner">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <blockquote class="icon mb-0">
+                                                            <p>“I have parents with diabetes and blood pressure. Every month, I buy over 15,000 worth medicines. I need to cash to roll-over, until I get my salary. Qube has been a great solution.”</p>
+                                                            <div class="blockquote-details">
+                                                                <img class="rounded-circle w-12"
+                                                                    src="./assets/img/sujatha.png"
+                                                                    srcset="./assets/img/sujatha.png" alt="" />
+                                                                <div class="info">
+                                                                    <h5 class="mb-1">Sujata K.</h5>
+                                                                    <p class="mb-0">Bengaluru</p>
+                                                                </div>
+                                                            </div>
+                                                        </blockquote>
+                                                    </div>
+                                                    <!--/.card-body -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.item-inner -->
+                                        </div>
+                                        <!--/.swiper-slide -->
+                                    </div>
+                                    <!--/.swiper-wrapper -->
+                                </div>
+                                <!-- /.swiper -->
+                            </div>
+                            <!-- /.swiper-container -->
+                        </div>
+                        <!-- /.position-relative -->
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container pt-9 pt-lg-11 pb-14 pb-lg-6">
+                <div class="row gx-lg-8 gx-xl-10 align-items-center">
+                    <div class="col-lg-6">
+                        <figure><img src="./assets/img/mobile-1.png" srcset="./assets/img/mobile-1.png" alt="" />
+                        </figure>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-lg-6">
+                        <h2 class="fs-15 text-uppercase text-muted mb-3">THE QUBE APP</h2>
+                        <h3 class="display-4 mb-5"> Easy to borrow.<br>
+                             Easy to pay. </h3>
+                        <p class="mb-8">Once your employer enrols you, you get pre-registered access to the Qube App,
+                            with an instant line of credit, and easy no-cost payback EMI options. Use the App to draw
+                            down money, scan & pay at any healthcare provider across India, get guaranteed cash backs
+                            and access India’s largest healthcare marketplace.</p>
+                        <div class="row gy-6 gx-xxl-8 process-wrapper">
+                            <div class="col-md-4"> <img src="./assets/img/download.png"
+                                    class="svg-inject icon-svg icon-svg-sm text-green mb-3" alt="" />
+                                <h4 class="mb-1">1. Download</h4>
+                                <p class="mb-0">Get the Qube App from the App Store or Play Store.</p>
+                            </div>
+                            <!--/column -->
+                            <div class="col-md-4"> <img src="./assets/img/mobilelogin.svg"
+                                    class="svg-inject icon-svg icon-svg-sm text-red mb-3" alt="" />
+                                <h4 class="mb-1">2. Login</h4>
+                                <p class="mb-0">Access your pre-registered account through OTP login.</p>
+                            </div>
+                            <!--/column -->
+                            <div class="col-md-4"> <img src="./assets/img/kyc.svg"
+                                    class="svg-inject icon-svg icon-svg-sm text-aqua mb-3" alt="" />
+                                <h4 class="mb-1">3. Activate</h4>
+                                <p class="mb-0">Complete your KYC and activate your account in 5 minutes. </p>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+
+        <section class="wrapper">
+            <div class="container pb-14">
+                <!-- /.row -->
+                <ul
+                    class="nav nav-tabs nav-tabs-bg d-flex justify-content-between nav-justified flex-lg-row flex-column">
+                    <li class="nav-item"> <a class="nav-link d-flex flex-row" data-bs-toggle="tab"
+                            href="#tab2-1">
+                            <div><img src="./assets/img/employers.png"
+                                    class="svg-inject icon-svg icon-svg-md text-yellow me-4" alt="" /></div>
+                            <div>
+                                <h4>Employers</h4>
+                                <p>A powerful add-on to your group health insurance plan.</p>
+                            </div>
+                        </a> </li>
+                    <li class="nav-item"> <a class="nav-link d-flex flex-row active" data-bs-toggle="tab" href="#tab2-2">
+                            <div><img src="./assets/img/employersss.svg"
+                                    class="svg-inject icon-svg icon-svg-md text-green me-4" alt="" /></div>
+                            <div>
+                                <h4>Employees</h4>
+                                <p>Take control of your family’s healthcare bills.</p>
+                            </div>
+                        </a> </li>
+                    <li class="nav-item"> <a class="nav-link d-flex flex-row" data-bs-toggle="tab" href="#tab2-3">
+                            <div><img src="./assets/img/healthcare.svg"
+                                    class="svg-inject icon-svg icon-svg-md text-red me-4" alt="" /></div>
+                            <div  style="padding: 0 0 0 12px;">
+                                <h4>Healthcare Providers</h4>
+                                <p>Partner, and showcase your hospital or clinic to our Users.</p>
+                            </div>
+                        </a> </li>
+                </ul>
+                <!-- /.nav-tabs -->
+                <div class="tab-content mt-6 mt-lg-8">
+                    <div class="tab-pane fade" id="tab2-1">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-6">
+                                <div class="row gx-md-5 gy-5 align-items-center">
+                                    <div class="col-6">
+                                        <img class="img-fluid rounded shadow-lg d-flex ms-auto"
+                                            src="./assets/img/the-solution.png" srcset="./assets/img/the-solution.png"
+                                            alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-6">
+                                        <img class="img-fluid rounded shadow-lg mb-5"
+                                            src="./assets/img/the-challeng.png" srcset="./assets/img/the-challeng.png"
+                                            alt="" />
+                                        <img class="img-fluid rounded shadow-lg d-flex col-10"
+                                            src="./assets/img/easy-onboarding.png"
+                                            srcset="./assets/img/easy-onboarding.png" alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!--/column -->
+                            <div class="col-lg-6">
+                                <h2 class="mb-3">Companies that care.</h2>
+                                <p>Reducing personal debt is the Number One reason, employees ask for a salary increase
+                                    or switch jobs, and healthcare bills is the biggest reason for personal debt. We
+                                    know that increasing your group health insurance policy cover is expensive and
+                                    complex. That’s why Indian companies are choosing Qube.</p>
+                                <ul class="icon-list bullet-bg bullet-soft-green">
+                                    <li><i class="uil uil-check"></i>Bundlle QubeHealth-Credit to your group health
+                                        insurance.</li>
+                                    <li><i class="uil uil-check"></i>Costs you less than two rupees per day, per
+                                        employee.</li>
+                                    <li><i class="uil uil-check"></i>Surprisingly easy to implement. Minimal HR & Admin.
+                                        effort.</li>
+                                </ul>
+                                <a href="#" class="btn btn-green mt-2" data-bs-toggle="modal"
+                                    data-bs-target="#modal-02">Contact Us</a>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!--/.tab-pane -->
+                    <div class="tab-pane fade show active" id="tab2-2">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-6 order-lg-2">
+                                <div class="row gx-md-5 gy-5">
+                                    <div class="col-5">
+                                        <img class="img-fluid rounded shadow-lg my-5 d-flex ms-auto"
+                                            src="./assets/img/mother-giving-medicine.png"
+                                            srcset="./assets/img/mother-giving-medicine.png" alt="" />
+                                        <img class="img-fluid rounded shadow-lg d-flex col-10 ms-auto"
+                                            src="./assets/img/mask-group.png" srcset="./assets/img/mask-group.png"
+                                            alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-7">
+                                        <img class="img-fluid rounded shadow-lg mb-5" src="./assets/img/pet.png"
+                                            srcset="./assets/img/pet.png" alt="" />
+                                        <img class="img-fluid rounded shadow-lg d-flex col-11"
+                                            src="./assets/img/no-cost-for-life.png"
+                                            srcset="./assets/img/no-cost-for-life.png" alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!--/column -->
+                            <div class="col-lg-6">
+                                <h2 class="mb-3">Take Control.</h2>
+                                <p>Every Indian today pays for a dependent family member’s medicines or health check
+                                    ups. Their parents, their children and even their pets. Emergencies are tough, but
+                                    basic, everyday medical expenses too seem to take a slice out of your monthly
+                                    savings. </p>
+                                <ul class="icon-list bullet-bg bullet-soft-green">
+                                    <li><i class="uil uil-check"></i>Health & medical costs are rising every year.</li>
+                                    <li><i class="uil uil-check"></i>Your health insurance will never be enough.</li>
+                                    <li><i class="uil uil-check"></i>Reduce uncertainty and anxiety about funding your
+                                        annual medical bills.</li>
+                                </ul>
+                                <a href="#" class="btn btn-green mt-2" data-bs-toggle="modal"
+                                    data-bs-target="#modal-02">Contact Us</a>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!--/.tab-pane -->
+                    <div class="tab-pane fade" id="tab2-3">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-6">
+                                <div class="row gx-md-5 gy-5">
+                                    <div class="col-6">
+                                        <img class="img-fluid rounded shadow-lg mb-5" src="./assets/img/h1.png"
+                                            srcset="./assets/img/h1.png" alt="" />
+                                        <img class="img-fluid rounded shadow-lg d-flex col-10 ms-auto"
+                                            src="./assets/img/h3.png" srcset="./assets/img/h3.png" alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-6">
+                                        <img class="img-fluid rounded shadow-lg my-5" src="./assets/img/h2.png"
+                                            srcset="./assets/img/h2.png" alt="" />
+                                        <img class="img-fluid rounded shadow-lg d-flex col-10" src="./assets/img/h4.png"
+                                            srcset="./assets/img/h4.png" alt="" />
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!--/column -->
+                            <div class="col-lg-6">
+                                <h2 class="mb-3">Healthcare Providers</h2>
+                                <p>Market your products and services to our Users - employees of the some of the best
+                                    companies in India. We help our Users make better healthcare decisions, giving them
+                                    the widest choice and financing their transactions. Choose Qube as your sales &
+                                    marketing partner.</p>
+                                <ul class="icon-list bullet-bg bullet-soft-green">
+                                    <li><i class="uil uil-check"></i>Attract ‘corporate employee’ customers, from across
+                                        India.</li>
+                                    <li><i class="uil uil-check"></i>Showcase your products and services in a targeted
+                                        manner.</li>
+                                    <li><i class="uil uil-check"></i>Easy onboarding. Minimal integration effort.
+                                        Immediate business.</li>
+                                </ul>
+                                <a href="partners.html" class="btn btn-green mt-2">Contact Us</a>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!--/.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="bg-navy text-inverse fut-bg">
+        <div class="container pt-12 pt-lg-15 pb-13 pb-md-15">
+            <div class="d-lg-flex flex-row align-items-lg-center">
+                <h3 class="display-3 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white"> Take control of the way you
+                    pay for healthcare. “Qube Karo!” </h3>
+                <a href="#" class="btn btn-white  rounded-pill mb-0 text-nowrap" data-bs-toggle="modal"
+                    data-bs-target="#modal-02">Contact Us</a>
+            </div>
+            <!--/div -->
+            <hr class="mt-11 mb-12" />
+            <div class="row gy-6 gy-lg-0">
+                <div class="col-md-3 col-lg-3">
+                    <div class="widget">
+                        <!-- <img class="mb-4" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light.png"
+                            alt="" /> -->
+                        <p class="mb-4">Copyright © QB Health <br class="d-none d-lg-block" /> Technologies Private Ltd.
+                        </p>
+                        <div class="row align-items-center">
+                            <div class="col-md-3 col-lg-3">
+                                <img width="100%" src="./assets/img/amazone.png" srcset="./assets/img/amazone.png"
+                                    alt="" />
+                            </div>
+                            <div class="col-md-3 col-lg-3">
+                                <img width="100%" src="./assets/img/ayush.png" srcset="./assets/img/ayush.png" alt="" />
+                            </div>
+                            <div class="col-md-3 col-lg-3">
+                                <img width="100%" src="./assets/img/certin-security.png"
+                                    srcset="./assets/img/certin-security.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-2 col-lg-2">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">Learn More</h4>
+                        <ul class="list-unstyled  mb-0">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="partners.html">Healthcare Provider</a></li>
+
+                            <li><a href="terms.html#terms-conditions"> Privacy Policy</a></li>
+                            <li><a href="terms.html#privacy-policy">Terms and Conditions</a></li>
+                            <li><a href="terms.html#user-policy"> Our Financing Partners</a> </li>
+                            <li><a href="terms.html#copyrights"> Our Banking Partner</a> </li>
+                            <li><a href="terms.html#cookies"> Most Important Terms of Product</a> </li>
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-2 col-lg-2">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">Get in Touch</h4>
+                        <a href="https://goo.gl/maps/5CBs2mgLLNpscupT6" target="_blank">
+                        <address class="pe-xl-15 pe-xxl-17">QubeHealth,
+                            Mumbai,<br>
+                            India
+                        </address>
+                    </a>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-3 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">Download Now</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <a href="https://play.google.com/store/search?q=qubehealth&c=apps" target="_blank">
+                                    <img width="100%" src="./assets/img/google-playstore.svg" srcset="./assets/img/google-playstore.svg"  alt="" />
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <a href="https://apps.apple.com/in/app/qubehealth-care-now-pay-later/id1659360783" target="_blank">
+                                    <img width="100%" src="./assets/img/apple-store.svg" srcset="./assets/img/apple-store.svg" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- /.social -->
+                        <nav class="nav social social-white">
+                            <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
+                            <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
+                            <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
+                        </nav>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <div class="col-md-1 col-lg-1">
+
+                </div>
+                <!-- /column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </footer>
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+
+
+    <div class="modal fade" id="modal-02" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="row">
+                        <div id="contact_form_div" class="col-lg-12  col-xl-12">
+                            <h2 class="display-4 mb-3 text-center" style="margin-bottom: 5px !important;">Drop Us a Line</h2>
+                            <p class="lead text-center mb-5">
+                              <!-- Reach out to us from our contact form  -->
+                              and we will get back to you shortly.</p>
+                            <form id="contact_form" class="contact-form needs-validation" method="post" action="#"
+                                novalidate="">
+                                <!-- ./assets/php/contact.php -->
+                                <div class="messages"></div>
+                                <div class="row gx-4">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_name" type="text" name="name" class="form-control"
+                                                placeholder="Full Name" required=""
+                                                onkeyup="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+                                            <label for="form_name">Full Name</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your full name. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_number" type="tel" name="number" class="form-control"
+                                                placeholder="Mobile Number" required="" maxlength=10
+                                                onkeyup="this.value = this.value.replace(/[^0-9]/g,'')">
+                                            <label for="form_lastname">Mobile Number *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your mobile number. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_email" type="email" name="email" class="form-control"
+                                                placeholder="jane.doe@example.com" required=""
+                                                onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9@._]/g, '')">
+                                            <label for="form_email">Email *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please provide a valid email address. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_lastname" type="text" name="company" class="form-control"
+                                                placeholder="Company Name" required="">
+                                            <label for="form_lastname">Company Name *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your company name. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-12">
+                                        <div class="form-floating mb-5">
+                                            <textarea id="form_message" name="message" class="form-control"
+                                                placeholder="Your message" style="height: 150px" required=""></textarea>
+                                            <label for="form_message">Message *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your messsage. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-12 text-center">
+                                        <input id="send_message" type="submit"
+                                            class="btn btn-primary rounded-pill btn-send" value="Send message">
+                                        <img id="form_submit_loader" class="logo-dark" src="./assets/img/loader.gif"
+                                            srcset="./assets/img/loader.gif" alt="" style="display:none;" />
+                                        <!-- <p class="text-muted" style="margin-bottom: 0px;" ><strong>*</strong> These fields are required.</p> -->
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                            </form>
+                            <!-- /form -->
+                        </div>
+                        <div id="thank_you_div" class="col-lg-12  col-xl-12">
+                            <img class="logo-dark" src="./assets/img/confirmed-tick.png"
+                                srcset="./assets/img/confirmed-tick.png" alt="" />
+                            <h2 class="display-4 mb-3 text-center"> Thank You</h2>
+                            <p class="lead text-center mb-10">
+                                We Are Trusted By Over 5000+ Clients. Join Them By Using Our Service And Grow Your
+                                Business.
+                            </p>
+
+                            <input data-bs-dismiss="modal" id="ok_button" type="button"
+                                class="btn btn-primary rounded-pill btn-send mb-3" value="OK">
+                        </div>
+                        <!-- /column -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!--/.modal-body -->
+            </div>
+            <!--/.modal-content -->
+        </div>
+        <!--/.modal-dialog -->
+    </div>
+    <!--/.modal -->
+
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script type="text/javascript">
+        $("#contact_form").submit(function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
