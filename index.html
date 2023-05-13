@@ -42,7 +42,9 @@
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                         <div class="offcanvas-header d-lg-none">
-                            <h3 class="text-white fs-30 mb-0">QubeCrew</h3>
+                            <!-- <h3 class="text-white fs-30 mb-0">QubeCrew</h3> -->
+                            <img class="logo-light" src="./assets/img/logo-light.svg"
+                                srcset="./assets/img/logo-light.svg" alt="" />
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -58,14 +60,12 @@
                             <!-- /.navbar-nav -->
                             <div class="offcanvas-footer d-lg-none">
                                 <div>
-                                    <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a>
-                                    <br /> 00 (123) 456 78 90 <br />
+                                    <a href="mailto:contact@qubehealth.com" class="link-inverse">contact@qubehealth.com</a>
                                     <nav class="nav social social-white mt-4">
-                                        <a href="#"><i class="uil uil-twitter"></i></a>
-                                        <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                        <a href="#"><i class="uil uil-dribbble"></i></a>
-                                        <a href="#"><i class="uil uil-instagram"></i></a>
-                                        <a href="#"><i class="uil uil-youtube"></i></a>
+                                        <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
+                                        <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                                        <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
+                                        <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
                                     </nav>
                                     <!-- /.social -->
                                 </div>
@@ -100,7 +100,7 @@
                 data-autoplaytime="7000" data-nav="true" data-dots="true" data-items="1">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide bg-image" data-image-src="./assets/img/slider-1.png">
+                        <div class="swiper-slide bg-image" id="slide_image_change_mobile" data-image-src="./assets/img/slider-1.png">
                             <div class="container h-100">
                                 <div class="row h-100">
                                     <div
@@ -306,6 +306,18 @@
             <div class="container py-14">
                 <!-- /.row -->
                 <div class="row gx-md-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-6" id="mobile-block">
+                        <h2 class="display-6 mb-3">How It Works?</h2>
+                        <p class="lead fs-lg pe-lg-5">Qube is available, only through the company you work for.
+                            They pay your subscription fee.</p>
+                        <p>Companies that care about their employees, across India, are providing Qube, as an add-on, to
+                            their company-paid health insurance program (“group medical insurance”). </p>
+                        <p class="mb-6">Your company HR sets up your Qube Account, and you activate your credit line,
+                            and payment system, by downloading the Qube App. Activation is simple, and takes less than 5
+                            minutes.</p>
+                        <!-- <a href="#" class="btn btn-primary rounded-pill mb-0">Learn More</a> -->
+                    </div>
+                    
                     <div class="col-lg-6 order-lg-2">
                         <div class="card boxList me-lg-6">
                             <div class="card-body p-6">
@@ -357,7 +369,7 @@
                         <!--/.card -->
                     </div>
                     <!--/column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" id="mobile-none">
                         <h2 class="display-6 mb-3">How It Works?</h2>
                         <p class="lead fs-lg pe-lg-5">Qube is available, only through the company you work for.
                             They pay your subscription fee.</p>
@@ -398,7 +410,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="item-inner">
-                                                <div class="card" style="height: 315px;">
+                                                <div class="card cardmobileheight">
                                                     <div class="card-body">
                                                         <blockquote class="icon mb-0">
                                                             <p>“It was shocking how much money I was spending on my
@@ -425,7 +437,7 @@
                                         <!--/.swiper-slide -->
                                         <div class="swiper-slide">
                                             <div class="item-inner">
-                                                <div class="card" style="height: 315px;">
+                                                <div class="card cardmobileheight">
                                                     <div class="card-body">
                                                         <blockquote class="icon mb-0">
                                                             <p>“Our employees were using their Credit Cards or small
@@ -452,7 +464,7 @@
                                         <!--/.swiper-slide -->
                                         <div class="swiper-slide">
                                             <div class="item-inner">
-                                                <div class="card" style="height: 315px;">
+                                                <div class="card cardmobileheight">
                                                     <div class="card-body">
                                                         <blockquote class="icon mb-0">
                                                             <p style="font-size: 0.812rem;" >“When I found out that my mother may have cancer, the first though in my mind, was, I need to arrange money urgently. My insurance was not enough. That’s when I realized the value of Qube.”</p>
@@ -476,7 +488,7 @@
                                         <!--/.swiper-slide -->
                                         <div class="swiper-slide">
                                             <div class="item-inner">
-                                                <div class="card" style="height: 315px;">
+                                                <div class="card cardmobileheight">
                                                     <div class="card-body">
                                                         <blockquote class="icon mb-0">
                                                             <p>“I have parents with diabetes and blood pressure. Every month, I buy over 15,000 worth medicines. I need to cash to roll-over, until I get my salary. Qube has been a great solution.”</p>
@@ -522,7 +534,7 @@
                         </figure>
                     </div>
                     <!-- /column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 centerinmobile">
                         <h2 class="fs-15 text-uppercase text-muted mb-3">THE QUBE APP</h2>
                         <h3 class="display-4 mb-5"> Easy to borrow.<br>
                              Easy to pay. </h3>
@@ -530,7 +542,7 @@
                             with an instant line of credit, and easy no-cost payback EMI options. Use the App to draw
                             down money, scan & pay at any healthcare provider across India, get guaranteed cash backs
                             and access India’s largest healthcare marketplace.</p>
-                        <div class="row gy-6 gx-xxl-8 process-wrapper">
+                        <div class="row gy-6 gx-xxl-8 process-wrapper" style="text-align: center; ">
                             <div class="col-md-4"> <img src="./assets/img/download.png"
                                     class="svg-inject icon-svg icon-svg-sm text-green mb-3" alt="" />
                                 <h4 class="mb-1">1. Download</h4>
@@ -736,7 +748,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="bg-navy text-inverse fut-bg">
-        <div class="container pt-12 pt-lg-15 pb-13 pb-md-15">
+        <div class="container pt-12 pt-lg-15 pb-13 pb-md-15 centerinmobile">
             <div class="d-lg-flex flex-row align-items-lg-center">
                 <h3 class="display-3 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white"> Take control of the way you
                     pay for healthcare. “Qube Karo!” </h3>
@@ -753,14 +765,14 @@
                         <p class="mb-4">Copyright © QB Health <br class="d-none d-lg-block" /> Technologies Private Ltd.
                         </p>
                         <div class="row align-items-center">
-                            <div class="col-md-3 col-lg-3">
+                            <div class="col-md-4 col-lg-4 col-sm-4 col-4">
                                 <img width="100%" src="./assets/img/amazone.png" srcset="./assets/img/amazone.png"
                                     alt="" />
                             </div>
-                            <div class="col-md-3 col-lg-3">
+                            <div class="col-md-4 col-lg-4 col-sm-4 col-4">
                                 <img width="100%" src="./assets/img/ayush.png" srcset="./assets/img/ayush.png" alt="" />
                             </div>
-                            <div class="col-md-3 col-lg-3">
+                            <div class="col-md-4 col-lg-4 col-sm-4 col-4">
                                 <img width="100%" src="./assets/img/certin-security.png"
                                     srcset="./assets/img/certin-security.png" alt="" />
                             </div>
@@ -804,12 +816,12 @@
                     <div class="widget">
                         <h4 class="widget-title text-white mb-3">Download Now</h4>
                         <div class="row">
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-md-6 col-lg-6 col-sm-6 col-6">
                                 <a href="https://play.google.com/store/search?q=qubehealth&c=apps" target="_blank">
                                     <img width="100%" src="./assets/img/google-playstore.svg" srcset="./assets/img/google-playstore.svg"  alt="" />
                                 </a>
                             </div>
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-md-6 col-lg-6 col-sm-6 col-6">
                                 <a href="https://apps.apple.com/in/app/qubehealth-care-now-pay-later/id1659360783" target="_blank">
                                     <img width="100%" src="./assets/img/apple-store.svg" srcset="./assets/img/apple-store.svg" alt="" />
                                 </a>
@@ -817,7 +829,7 @@
                         </div>
                         <br>
                         <!-- /.social -->
-                        <nav class="nav social social-white">
+                        <nav class="social social-white centerinmobile">
                             <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
                             <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
                             <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
