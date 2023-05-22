@@ -784,7 +784,7 @@ var theme = {
                 document.getElementById("form_submit_loader").style.display = "inline";
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
-                fetch("http://13.71.81.211/QubeHealthWebPanel/api/Form/AddClientData", {
+                fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddClientData", {
                   method: "post",
                   body: data
                 }).then((data) => {
@@ -819,7 +819,7 @@ var theme = {
                 document.getElementById("form_submit_loader").style.display = "inline";
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
-                fetch("http://13.71.81.211/QubeHealthWebPanel/api/Form/AddContactData", {
+                fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddContactData", {
                   method: "post",
                   body: data
                 }).then((data) => {
@@ -839,6 +839,43 @@ var theme = {
                     }
                     document.getElementById("send_message").style.display = "inline";
                     document.getElementById("form_submit_loader").style.display = "none";
+                }).catch((err) => {
+                  console.log(err);
+                });
+
+              }
+
+              var isJoinusForm = form.classList.contains('joinus-form');
+              if(isJoinusForm) {
+                document.getElementById("send_message_join").style.display = "none";
+                document.getElementById("form_submit_loader_join").style.display = "inline";
+                var data = new FormData(form);
+                var alertClass = 'alert-danger';
+                fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddJoinData", {
+                  method: "post",
+                  body: data
+                }).then((data) => {
+                  if(data.ok) {
+                    alertClass = 'alert-success';
+                  }
+                  document.getElementById("send_message_join").style.display = "inline";
+                  document.getElementById("form_submit_loader_join").style.display = "none";
+                  return data.text();
+                }).then((txt) => {
+                    const obj = JSON.parse(txt);
+                    if(obj.status == true){
+                      document.getElementById("joinus_form_div").style.display = "none";
+                      document.getElementById("thank_you_div_partner").style.display = "block";
+                      form.reset();
+                      alertClass = 'alert-success';
+                    }else{
+                      var alertBox = '<div class="alert ' + alertClass + ' alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + obj.message + '</div>';
+                      if(alertClass && txt) {
+                        form.querySelector(".messages").insertAdjacentHTML('beforeend', alertBox);
+                      }
+                      document.getElementById("joinus_form_div").style.display = "none";
+                      document.getElementById("thank_you_div_partner").style.display = "block";
+                    }
                 }).catch((err) => {
                   console.log(err);
                 });

@@ -55,6 +55,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="partners.html">Healthcare Provider Partners</a>
                                 </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="news.html">In the News</a>
+                                </li> -->
                             </ul>
                             <!-- /.navbar-nav -->
                             <div class="offcanvas-footer d-lg-none">
@@ -104,7 +107,7 @@
                         <p class="lead fs-lg lh-sm mb-7 pe-xl-10">Imagine building something that your family would love to use and feel proud about.</p>
                         <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
                             data-group="page-title-buttons" data-delay="900">
-                            <span><a href="#theQubeCrew" class="btn btn-lg btn-white rounded-pill me-2 scroll">Life @Qube</a></span>
+                            <span><a href="#proudtobe" class="btn btn-lg btn-white rounded-pill me-2 scroll">Life @Qube</a></span>
                             <span>
                               <!-- <a href="positions_info.html" class="btn btn-lg btn-outline-white rounded-pill">Join Us</a> -->
                               <a href="#" data-bs-toggle="modal" data-bs-target="#thankyou_modal" class="btn btn-lg btn-outline-white rounded-pill">Join Us</a>
@@ -169,7 +172,7 @@
                                 <img src="./assets/img/language.png"
                                     class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
                                 <h3 class="counter">9</h3>
-                                <p class="mb-0">Indian Languages</p>
+                                <p class="mb-0" id="proudtobe">Indian Languages</p>
                             </div>
                             <!--/column -->
                         </div>
@@ -197,7 +200,7 @@
                     <div class="shape qube-shape rellax w-16 h-16" data-rellax-speed="0"
                         style="top: -1.5rem; left: -2.1rem;"></div>
                     <div class="swiper-container dots-closer blog grid-view mb-6" data-margin="0" data-dots="true"
-                        data-items-xl="3" data-items-md="2" data-items-xs="1" data-loop="true" data-autoplay="true" data-autoplaytime="3000">
+                        data-items-xl="3" data-items-md="2" data-items-xs="1">
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -712,7 +715,7 @@
                               <!--/.card-header -->
                               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="card-body">
-                                  <p>We truly believe working out of our Mumbai HQ office helps in collaboration, but We also recognize that everyone is looking for flexibility to work from anywhere, at any time. The “Work from Anywhere / Whenever!” or “WAW” policy is for those that are a part of the Qube Crew that Exceed Expectations in their monthly performance. They could work out of anywhere! </p>
+                                  <p>We truly believe working out of our Mumbai HQ office helps in collaboration, but we also recognize that everyone is looking for flexibility to work from anywhere, at any time. The “Work from Anywhere / Whenever!” or “WAW” policy is for those that are a part of the Qube Crew that Exceed Expectations in their monthly performance. They could work out of anywhere! </p>
                                 </div>
                                 <!--/.card-body -->
                               </div>
@@ -726,7 +729,7 @@
                                 <!--/.card-header -->
                                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p>Our Menstrual Leave policy provides 24 days a year to women. They can log off for these days and stay at home focusing only on their wellbeing.</p>
+                                    <p>Our Menstrual Leave Policy provides 24 days a year to women. They can log off for these days and stay at home focusing only on their wellbeing.</p>
                                   </div>
                                   <!--/.card-body -->
                                 </div>
@@ -749,7 +752,7 @@
                         <!-- <a href="#" class="btn btn-primary rounded-pill">Join Us</a> -->
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mobileM0">
                         <div id="accordionExample2" class="accordion accordion-wrapper">
                             <div class="card accordion-item">
                                 <div class="card-header" id="heading1">
@@ -908,6 +911,7 @@
                             <li><a href="terms.html#user-policy"> Our Financing Partners</a> </li>
                             <li><a href="terms.html#copyrights"> Our Banking Partner</a> </li>
                             <li><a href="terms.html#cookies"> Most Important Terms of Product</a> </li>
+                            <li><a href="terms.html#termsyesbank"> Terms and Conditions for Yes Bank Prepaid Instruments </a> </li>
                         </ul>
                     </div>
                     <!-- /.widget -->
@@ -1082,6 +1086,117 @@
                 <div class="modal-body">
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="row">
+                        <div id="joinus_form_div" class="col-lg-12  col-xl-12">
+                            <h2 class="display-4 mb-3 text-center" style="margin-bottom: 5px !important;">Join the #QubeCrew</h2>
+                            <p class="lead text-center mb-5">
+                              <!-- Reach out to us from our contact form  -->
+                              Do you want to work with us? please fill the form below..</p>
+                            <form id="joinus_form" class="joinus-form needs-validation" method="post" action="#"
+                                novalidate="">
+                                <!-- ./assets/php/contact.php -->
+                                <div class="messages"></div>
+                                <div class="row gx-4">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_first_name" type="text" name="first_name" class="form-control"
+                                                placeholder="First Name" required=""
+                                                onkeyup="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+                                            <label for="form_name">First Name</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your first name. </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form__last_name" type="text" name="last_name" class="form-control"
+                                                placeholder="Last Name" required=""
+                                                onkeyup="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+                                            <label for="form_name">Last Name</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your last name. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_number" type="tel" name="number" class="form-control"
+                                                placeholder="Mobile Number" required="" maxlength=10
+                                                onkeyup="this.value = this.value.replace(/[^0-9]/g,'')">
+                                            <label for="form_lastname">Mobile Number *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your mobile number. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_email" type="email" name="email" class="form-control"
+                                                placeholder="jane.doe@example.com" required=""
+                                                onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9@._]/g, '')">
+                                            <label for="form_email">Email *</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please provide a valid email address. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-md-6">
+                                        <div class="form-select-wrapper mb-4">
+                                            <select class="form-select" name="department" aria-label="Default select example">
+                                              <option selected>Select the Department</option>
+                                              <option value="Engineering & Technology">Engineering & Technology</option>
+                                              <option value="Sales"> Sales </option>
+                                              <option value="Marketing"> Marketing </option>
+                                              <option value="Operations"> Operations </option>
+                                              <option value="Finance"> Finance </option>
+                                              <option value="Partners"> Partners </option>
+                                              <option value="Human Resources"> Human Resources </option>
+                                              <option value="Design"> Design </option>
+                                              <option value="Customer Experience"> Customer Experience </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-4">
+                                            <input id="form_portfoliolink" type="text" name="portfoliolink" class="form-control"
+                                                placeholder="Portfolio Link (Optional)">
+                                            <label for="form_lastname">Portfolio Link (Optional)</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your Portfolio Link</div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-12">
+                                        <div class="form-floating mb-5">
+                                            <textarea id="form_message" name="message" class="form-control"
+                                                placeholder="Your message" style="height: 150px" required=""></textarea>
+                                            <label for="form_message">Message (Optional)</label>
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your messsage. </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-floating mb-4" style="text-align: left;">
+                                            <a href="#" class="btn rounded-pill me-1 mb-2 mb-md-0" style="background: #E8E8E8; color:black;" onclick="document.getElementById('getFile').click()" accept="application/msword, application/pdf">Upload Resume/CV</a>
+                                            DOC,DOCX,PDF (5MB)
+                                            <input id="getFile" type="file" name="resume" class="form-control"
+                                                placeholder="Company Name" required="" style="display: none;">
+                                            <div class="valid-feedback"> Looks good! </div>
+                                            <div class="invalid-feedback"> Please enter your company name. </div>
+                                        </div>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-12 text-center">
+                                        <input id="send_message_join" type="submit" class="btn btn-primary rounded-pill btn-send" value="Submit">
+                                        <img id="form_submit_loader_join" class="logo-dark" src="./assets/img/loader.gif"
+                                            srcset="./assets/img/loader.gif" alt="" style="display:none;" />
+                                        <p class="text-muted" style="margin-bottom: 0px;" ><strong>*</strong> These fields are required.</p>
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                                <!-- /.row -->
+                            </form>
+                            <!-- /form -->
+                        </div>
                         <div id="thank_you_div_partner" class="col-lg-12  col-xl-12">
                             <img class="logo-dark" src="./assets/img/confirmed-tick.png"
                                 srcset="./assets/img/confirmed-tick.png" alt="" />

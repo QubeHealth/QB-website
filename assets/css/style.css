@@ -56,6 +56,9 @@ input[type=number] {
 #thank_you_div{
   display: none;
 }
+#thank_you_div_partner{
+  display: none;
+}
 
 
 #QubeCrew .card-body {
@@ -196,7 +199,7 @@ img {
     display: none!important;
   }
   .cardmobileheight{
-    /* height: 350px!important; */
+    height: 350px!important;
   }
   .centerinmobile{
     text-align: center!important;
@@ -233,6 +236,15 @@ img {
     min-height: 170px;
   }
 
+  #healthcareline{
+    width: 92%!important;
+  }
+
+  #inthenewsline{
+    width: 36%!important;
+    background:white!important;
+  }
+
 }
 
 .cardmobileheight{
@@ -244,6 +256,9 @@ img {
   }
   .mobileM0{
     margin:0;
+  }
+  #partnersForm{
+    margin: -20px 0px!important;
   }
   
 }
