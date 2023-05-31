@@ -1,4 +1,34 @@
 <!DOCTYPE html>
+<?php
+include 'include/db.php';
+$url= $_SERVER['REQUEST_URI'];
+$id_data = explode('-', $url);
+$id = 1;
+if(isset($id_data) and $id_data != null and isset($id_data[1])){
+  $id = $id_data[1];
+}
+$sql = "select * from news where id =".$id;
+$result = $conn->query($sql);
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$data = $data[0];
+$next_data = array();
+$sql = "select * from news where id <".$id." and id != ".$id." order by id desc limit 2";
+$result = $conn->query($sql);
+if($result and isset($result->num_rows) and $result->num_rows == 2){
+  $next_data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}elseif($result and isset($result->num_rows) and $result->num_rows == 1){
+  $next_data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $sql = "select * from news where id != ".$id." order by id asc limit 1";
+  $result = $conn->query($sql);
+  $next_data_1 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $next_data[1] = $next_data_1;
+}else{
+  $sql = "select * from news where id != ".$id." order by id asc limit 2";
+  $result = $conn->query($sql);
+  $next_data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -18,8 +48,17 @@
     })(window,document,'script','dataLayer','GTM-TXX38PS');</script>
     <!-- End Google Tag Manager -->
     <style>
+        .nav-link{
+            /* color:black; */
+        }
         .bg-soft-primary{
           background: #454955!important;
+        }
+        .item figure, .swiper-slide figure{
+          /* height:300px; */
+        }
+        .navbar.navbar-bg-light{
+            background:#454955;
         }
     </style>
 </head>
@@ -32,289 +71,213 @@
     <div class="content-wrapper">
         <header class="wrapper bg-soft-primary">
             <nav class="navbar navbar-expand-lg center-nav transparent position-absolute navbar-dark caret-none">
-              <div class="container flex-lg-row flex-nowrap align-items-center">
-                <div class="navbar-brand w-100">
-                  <a href="https://www.qubehealth.com/">
-                    <img class="logo-dark" src="./assets/img/logo.svg" srcset="./assets/img/logo.svg" alt="" />
-                    <img class="logo-light" src="./assets/img/logo-light.svg"
-                        srcset="./assets/img/logo-light.svg" alt="" />
-                </a>
-                </div>
-                <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                  <div class="offcanvas-header d-lg-none">
-                      <!-- <h3 class="text-white fs-30 mb-0">QubeCrew</h3> -->
-                      <a href="https://www.qubehealth.com/" style="width: 100%;">
-                        <img class="logo-light" src="./assets/img/logo-light.svg"
-                        srcset="./assets/img/logo-light.svg" alt="" />
-                      </a>
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                          aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                      <ul class="navbar-nav">
-                          <li class="nav-item">
-                              <a class="nav-link" href="careers.html">Join the #QubeCrew</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="partners.html">Healthcare Provider Partners
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="news.html">In the News
-                                <div class="activeLine" id="inthenewsline"></div>
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100">
+                        <a href="https://www.qubehealth.com/">
+                            <img class="logo-dark" src="./assets/img/logo.svg" srcset="./assets/img/logo.svg" alt="" />
+                            <img class="logo-light" src="./assets/img/logo-light.svg"
+                                srcset="./assets/img/logo-light.svg" alt="" />
+                        </a>
+                    </div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <!-- <h3 class="text-white fs-30 mb-0">QubeCrew</h3> -->
+                            <a href="https://www.qubehealth.com/" style="width: 100%;">
+                                <img class="logo-light" src="./assets/img/logo-light.svg"
+                                srcset="./assets/img/logo-light.svg" alt="" />
                             </a>
-                          </li>
-                      </ul>
-                      <!-- /.navbar-nav -->
-                      <div class="offcanvas-footer d-lg-none">
-                          <div>
-                              <a href="mailto:contact@qubehealth.com" class="link-inverse">contact@qubehealth.com</a>
-                              <nav class="nav social social-white mt-4">
-                                  <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
-                                  <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
-                                  <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
-                                  <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
-                              </nav>
-                              <!-- /.social -->
-                          </div>
-                      </div>
-                      <!-- /.offcanvas-footer -->
-                  </div>
-                  <!-- /.offcanvas-body -->
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="careers.html">Join the #QubeCrew</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="partners.html">Healthcare Provider Partners</a>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- <a class="nav-link" href="news.html">In the News</a> -->
+                                    <a class="nav-link" href="news.html">In the News
+                                        <div class="activeLine" id="innerinthenewsline"></div>
+                                        <?php
+                                          $title = $data['main_title'];
+                                          $title = substr($title, 0, 30);
+                                        ?>
+                                        <span id="mobile-block" style="color: #51B14B; font-size: 14px; "> > <?=$title?>...</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- /.navbar-nav -->
+                            <div class="offcanvas-footer d-lg-none">
+                                <div>
+                                    <a href="mailto:contact@qubehealth.com" class="link-inverse">contact@qubehealth.com</a>
+                                    <nav class="nav social social-white mt-4">
+                                        <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
+                                        <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                                        <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
+                                        <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
+                                    </nav>
+                                    <!-- /.social -->
+                                </div>
+                            </div>
+                            <!-- /.offcanvas-footer -->
+                        </div>
+                        <!-- /.offcanvas-body -->
+                    </div>
+                    <div class="navbar-other ms-lg-4">
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item d-none d-md-block">
+                                <a href="#" id="employer_login" class="btn btn-sm btn-primary rounded-pill roll-link">
+                                    <span data-title="Coming Soon" href="#">Employer Login</span>
+                                </a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                            </li>
+                        </ul>
+                        <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
                 </div>
-                <div class="navbar-other ms-lg-4">
-                  <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    <li class="nav-item d-none d-md-block">
-                      <!-- Employer Login -->
-                      <a href="#" id="employer_login" class="btn btn-sm btn-primary rounded-pill roll-link">
-                        <span data-title="Coming Soon" href="#">Employer Login</span>
-                      </a>
-                    </li>
-                    <li class="nav-item d-lg-none">
-                      <button class="hamburger offcanvas-nav-btn"><span></span></button>
-                    </li>
-                  </ul>
-                  <!-- /.navbar-nav -->
-                </div>
-                <!-- /.navbar-other -->
-              </div>
-              <!-- /.container -->
+                <!-- /.container -->
             </nav>
             <!-- /.navbar -->
-          </header>
-          <!-- /header -->
-
-        <section class="wrapper bg-soft-primary">
-            <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
-              <div class="row" id="margintop10">
-                <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
-                    <h1 class="display-1 mb-3" style="color: white;">Qube In The News</h1>
-                  <p class="lead px-lg-5 px-xxl-8 mb-1" style="color: white;">We’re regularly featured in the media. Take a look.</p>
-                </div>
-                <!-- /column -->
+        </header>
+        <!-- /header -->
+        <!-- /header -->
+    <section class="wrapper bg-soft-primary">
+      <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
+        <div class="row" id="margintop10">
+          <div class="col-md-10 col-xl-8 mx-auto">
+            <div class="post-header">
+              <div class="post-category text-line">
+                <a href="#" class="hover" rel="category"><?=$data['title']?></a>
               </div>
-              <!-- /.row -->
+              <!-- /.post-category -->
+              <h1 class="mb-4" style="color: white;"><?=$data['main_title']?></h1>
+              <!-- /.post-meta -->
             </div>
-            <!-- /.container -->
-          </section>
-          <!-- /section -->
-          <section class="wrapper bg-light">
-            <div class="container pb-14 pb-md-16">
-              <div class="row">
-                <div class="col-lg-10 mx-auto">
-                  <div class="blog classic-view mt-n17">
+            <!-- /.post-header -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container pb-14 pb-md-16">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="blog single mt-n17">
+              <div class="card">
+                <figure class="card-img-top"><img src="<?php echo $base_url.$data['image']; ?>" alt="" /></figure>
+                <div class="card-body">
+                  <div class="classic-view">
                     <article class="post">
-                        <div class="card">
-                          <figure class="card-img-top overlay overlay-1 hover-scale">
-                            <a href="#"><img src="./assets/img/news/new1.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="card-body">
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a class="hover" rel="category">Business Today</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title mt-1 mb-0"><a class="link-dark" href="./Why-pet-care-industry-is-witnessing-a-fast-paced-growth-after-Covid-19-pandemic.html">Why pet care industry is witnessing a fast-paced growth after Covid-19 pandemic?</a></h2>
-                            </div>
-                            <!-- /.post-header -->
-                            <div class="post-content">
-                              <p>According to industry experts, pet care services and pet care products market in India is about $1.2 billion with 60% along coming from products alone. While several consumer markets during Covid-19 pandemic recorded a slump, the healthcare crisis triggered a fast-paced growth for pet care industry in India.</p>
-                            </div>
-                            <!-- /.post-content -->
-                          </div>
-                          <!--/.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </article>
-                    <!-- /.post -->
-                    <article class="post">
-                    <div class="card">
-                        <figure class="card-img-top overlay overlay-1 hover-scale">
-                        <a href="#">
-                            <img src="./assets/img/news/new2.png" alt="" />
-                            <!-- <img src="./assets/img/news/new3.png" alt="" /> -->
-                        </a>
-                        <figcaption>
-                            <h5 class="from-top mb-0">Read More</h5>
-                        </figcaption>
-                        </figure>
-                        <div class="card-body">
-                        <div class="post-header">
-                            <div class="post-category text-line">
-                            <a class="hover" rel="category">Inc 42</a>
-                            </div>
-                            <!-- /.post-category -->
-                            <h2 class="post-title mt-1 mb-0"><a class="link-dark" href="./blog-post.html">30 Startups To Watch: Startups That Caught Our Eye In November 2022</a></h2>
-                        </div>
-                        <!-- /.post-header -->
-                        <div class="post-content">
-                            <p>
-                            Compared to the global average of 4.1%, only 0.4% of Indians have health insurance. But the scenario gets worse due to inadequate coverage as pre-existing diseases/critical illnesses are not always covered by a standard package, or there is a long waiting period.
-                            </p>
-                        </div>
-                        <!-- /.post-content -->
-                        </div>
-                        <!--/.card-body -->
-                    </div>
-                    <!-- /.card -->
+                      <div class="post-content mb-5">
+                        <?php
+                        $description = trim($data['description']);
+                        $description = htmlspecialchars_decode($description);
+                          echo $description;
+                        ?>
+                      </div>
+                      <!-- /.post-content -->
+                      <div class="align-items-right centerinmobile" style="text-align: right; ">
+                              <a href="<?=$data['link']?>" class="btn btn-primary rounded-pill">See the Original Article</a>
+                      </div>
+                      <!-- /.post-footer -->
                     </article>
                     <!-- /.post -->
                   </div>
-                  <!-- /.blog -->
-                   <!-- /.blog -->
-                   <div class="blog grid grid-view">
-                    <div class="row isotope gx-md-8 gy-8 mb-8">
-                      <article class="item post col-md-6">
-                        <div class="card">
-                          <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img src="./assets/img/news/new7.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="card-body">
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a class="hover" rel="category">EF Health Care.com</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Embedded Finance: Tech makes private healthcare affordable</a></h2>
-                            </div>
-                            <!-- /.post-header -->
-                            <div class="post-content">
-                              <p>
-                                Millennials with well-paid jobs and employer health insurance may not be worrying about hospitalisation expenses.
-                              </p>
-                            </div>
-                            <!-- /.post-content -->
-                          </div>
-                          <!--/.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </article>
-                      <!-- /.post -->
-                      <article class="item post col-md-6">
-                        <div class="card">
-                          <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img src="./assets/img/news/new4.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="card-body">
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a class="hover" rel="category">News 18</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">
-                                Do You Believe In Saving Money? Know Why Keeping A Health Budget Is Useful
-                              </a></h2>
-                            </div>
-                            <!-- /.post-header -->
-                            <div class="post-content">
-                              <p>
-                                World Health Day 2023: Balancing your health budget and finances can be challenging.
-                              </p>
-                            </div>
-                            <!-- /.post-content -->
-                          </div>
-                          <!--/.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </article>
-                      <!-- /.post -->
-                      <article class="item post col-md-6">
-                        <div class="card">
-                          <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> 
-                            <img src="./assets/img/news/new3.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="card-body">
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a class="hover" rel="category">Business Today</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">
-                                NPCI inks pact with fintech startups, launches RuPay powered health card for employed Indians
-                              </a></h2>
-                            </div>
-                            <!-- /.post-header -->
-                            <div class="post-content">
-                              <p>
-                                The card, which can be used in both virtual and physical forms, s seamlessly.
-                              </p>
-                            </div>
-                            <!-- /.post-content -->
-                          </div>
-                          <!--/.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </article>
-                      <!-- /.post -->
-                      <article class="item post col-md-6">
-                        <div class="card">
-                          <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> 
-                            <img src="./assets/img/news/new5.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="card-body">
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a class="hover" rel="category">Times of india</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Is the next decade of health-tech going to look a lot like Fin-Tech?</a></h2>
-                            </div>
-                            <div class="post-content">
-                              <p>The Indian Healthcare sector is about US$ 350 Billion this year, growing at a CAGR of 22%.Of all the hospitals in India, 58% are privately owned, and 81% of...</p>
-                            </div>
-                            <!-- /.post-content -->
-                          </div>
-                          <!--/.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </article>
-                      <!-- /.post -->
+                  <br>
+                  <br>
+                  <section id="innerbreadcrumb" class="wrapper bg-gray" style="background: #454955 !important;border-radius: 15px;">
+                    <div class="container py-3 py-md-5" style="font-size: 20px; ">
+                      <nav class="d-inline-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                          <li class="breadcrumb-item"><a href="https://www.qubehealth.com/">Home</a></li>
+                          <li class="breadcrumb-item">
+                            <a href="news.html">In The News</a>
+                          </li>
+                          <li class="breadcrumb-item active text-muted" aria-current="page" style="color: #51B14B!important;">
+                            <?=$title?>...
+                          </li>
+                        </ol>
+                      </nav>
+                      <!-- /nav -->
                     </div>
-                    <!-- /.row -->
-                  </div>
-                  <!-- /.blog -->
-                </div>
-                <!-- /column -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.container -->
-          </section>
-          <!-- /section -->
+                    <!-- /.container -->
+                  </section>
+                  <br>
+                  <br>
+                  <!-- /.classic-view -->
+                  <!-- /.author-info -->
+                  <?php if(isset($next_data) and is_array($next_data) and count($next_data) > 0) { ?>
+                    <!-- <hr /> -->
+                    <h3 class="mb-6">You Might Also Like</h3>
+                    <div class="swiper-container blog grid-view mb-8" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1" data-autoplay="true" data-autoplaytime="3000">
+                      <div class="swiper">
+                        <div class="swiper-wrapper">
+                          <?php for ($x = 0; $x < 2; $x++) {
+                            if(isset($next_data[$x]) and $next_data[$x] != NULL){ ?>
+                                <div class="swiper-slide">
+                                  <article>
+                                    <figure class="overlay overlay-1 hover-scale rounded mb-5">
+                                      <a href="NW-<?=$next_data[$x]['id'].'-'.$next_data[$x]['url']?>.html"><img src="<?php echo $base_url.$next_data[$x]['image']; ?>" alt="" /></a>
+                                      <figcaption>
+                                        <h5 class="from-top mb-0">Read More</h5>
+                                      </figcaption>
+                                    </figure>
+                                    <div class="post-header">
+                                      <div class="post-category text-line">
+                                        <a class="hover" rel="category"><?=$next_data[$x]['title']?></a>
+                                      </div>
+                                      <!-- /.post-category -->
+                                      <h2 class="post-title h3 mt-1 mb-3">
+                                        <a class="link-dark" href="NW-<?=$next_data[$x]['id'].'-'.$next_data[$x]['url']?>.html">
+                                          <?=$next_data[$x]['main_title']?>
+                                        </a>
+                                      </h2>
+                                      <?php
+                                        // $description = substr($next_data[$x]['description'], 0, 100);
+                                        // $description = trim($description);
+                                        // $description = htmlspecialchars_decode($description);
+                                        // echo $description;
+                                      ?>
 
+                                    </div>
+                                  </article>
+                                  <!-- /article -->
+                                </div>
+                                <!--/.swiper-slide -->
+                          <?php }
+                          } ?>
+                        </div>
+                        <!--/.swiper-wrapper -->
+                      </div>
+                      <!-- /.swiper -->
+                    </div>
+                  <?php } ?>
+                  <!-- /.swiper-container -->
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.blog -->
+
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="bg-navy text-inverse fut-bg">
@@ -364,6 +327,7 @@
                             <li><a href="terms.html#user-policy"> Our Financing Partners</a> </li>
                             <li><a href="terms.html#copyrights"> Our Banking Partner</a> </li>
                             <li><a href="terms.html#cookies"> Most Important Terms of Product</a> </li>
+                            <li><a href="terms.html#termsyesbank"> Terms and Conditions for Yes Bank Prepaid Instruments </a> </li>
                         </ul>
                     </div>
                     <!-- /.widget -->

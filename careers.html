@@ -55,9 +55,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="partners.html">Healthcare Provider Partners</a>
                                 </li>
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" href="news.html">In the News</a>
-                                </li> -->
+                                </li>
                             </ul>
                             <!-- /.navbar-nav -->
                             <div class="offcanvas-footer d-lg-none">
@@ -1175,13 +1175,19 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-floating mb-4" style="text-align: left;">
-                                            <a href="#" class="btn rounded-pill me-1 mb-2 mb-md-0" style="background: #E8E8E8; color:black;" onclick="document.getElementById('getFile').click()" accept="application/msword, application/pdf">Upload Resume/CV</a>
-                                            DOC,DOCX,PDF (5MB)
+                                        <div class="form-floating mb-4 centerinmobile" style="text-align: left;" >
+                                            <a id="resumefilename" href="#" class="btn rounded-pill me-1 mb-2 mb-md-0" style="background: #E8E8E8; color:black; min-width:200px;" onclick="document.getElementById('getFile').click()">
+                                                <span id="resumename">
+                                                    Upload Resume/CV *
+                                                </span> 
+                                            </a>
+                                            <span>
+                                                DOC,DOCX,PDF (5MB)
+                                            </span>
                                             <input id="getFile" type="file" name="resume" class="form-control"
-                                                placeholder="Company Name" required="" style="display: none;">
+                                                placeholder="Company Name" required="" style="display: none;" accept="application/msword, application/pdf">
                                             <div class="valid-feedback"> Looks good! </div>
-                                            <div class="invalid-feedback"> Please enter your company name. </div>
+                                            <div class="invalid-feedback"> Please Upload your resume/CV. </div>
                                         </div>
                                     </div>
                                     <!-- /column -->
@@ -1202,7 +1208,7 @@
                                 srcset="./assets/img/confirmed-tick.png" alt="" />
                             <h2 class="display-4 mb-3 text-center"> Thank You</h2>
                             <p class="lead text-center mb-10">
-                                Thank you for visiting our website. Currently, we don't have any job openings available. However, we are always looking for talented individuals to join our team. We encourage you to share your CV to <a href="mailto:hr@qubehealth.com">hr@qubehealth.com</a>, so we can consider you for future career opportunities that align with your skills and experience.
+                                Thank you for completing the Profile form. Our team will review your application, and if you are selected, we will contact you. Keep an eye out!
                             </p>
 
                             <input data-bs-dismiss="modal" id="ok_button" type="button"
@@ -1225,6 +1231,16 @@
     <script type="text/javascript">
         $("#contact_form").submit(function (e) {
             e.preventDefault();
+        });
+
+        $("#getFile").change(function() {
+            filename = this.files[0].name;
+            filename = filename.substring(0, 30);
+            $('#resumename').html(filename);
+            const div_2 = document.getElementById("resumefilename");
+            const div_1 = document.getElementById("resumename");
+            div_1.setAttribute("style", "color: white!important; width:100%; display:table;");
+            div_2.setAttribute("style", "background: #51B14B; width:300px");
         });
     </script>
 </body>

@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php
+include 'include/db.php';
+$page = 1;
+$offset = 0;
+if($_GET['page'] and $_GET['page'] != null){
+  $page = $_GET['page'];
+  $offset = ($page-1)*6;
+}
+if($offset == 0){
+  $sql = "select * from news ORDER BY id desc limit 6";
+}else{
+  $offset = $offset - 1;
+  $sql = "select * from news ORDER BY id desc limit 6,".$offset;
+}
+$result = $conn->query($sql);
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$sql = "select * from news";
+$result = $conn->query($sql);
+$total_count = $result->num_rows;
+?>
 <html lang="en">
 
 <head>
@@ -18,17 +39,8 @@
     })(window,document,'script','dataLayer','GTM-TXX38PS');</script>
     <!-- End Google Tag Manager -->
     <style>
-        .nav-link{
-            /* color:black; */
-        }
         .bg-soft-primary{
           background: #454955!important;
-        }
-        .item figure, .swiper-slide figure{
-          height:300px;
-        }
-        .navbar.navbar-bg-light{
-            background:#454955;
         }
     </style>
 </head>
@@ -41,203 +53,262 @@
     <div class="content-wrapper">
         <header class="wrapper bg-soft-primary">
             <nav class="navbar navbar-expand-lg center-nav transparent position-absolute navbar-dark caret-none">
-                <div class="container flex-lg-row flex-nowrap align-items-center">
-                    <div class="navbar-brand w-100">
-                        <a href="https://www.qubehealth.com/">
-                            <img class="logo-dark" src="./assets/img/logo.svg" srcset="./assets/img/logo.svg" alt="" />
-                            <img class="logo-light" src="./assets/img/logo-light.svg"
-                                srcset="./assets/img/logo-light.svg" alt="" />
-                        </a>
-                    </div>
-                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                        <div class="offcanvas-header d-lg-none">
-                            <!-- <h3 class="text-white fs-30 mb-0">QubeCrew</h3> -->
-                            <a href="https://www.qubehealth.com/" style="width: 100%;">
-                                <img class="logo-light" src="./assets/img/logo-light.svg"
-                                srcset="./assets/img/logo-light.svg" alt="" />
-                            </a>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="careers.html">Join the #QubeCrew</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="partners.html">Healthcare Provider Partners</a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="news.html">In the News</a>
-                                </li> -->
-                            </ul>
-                            <!-- /.navbar-nav -->
-                            <div class="offcanvas-footer d-lg-none">
-                                <div>
-                                    <a href="mailto:contact@qubehealth.com" class="link-inverse">contact@qubehealth.com</a>
-                                    <nav class="nav social social-white mt-4">
-                                        <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
-                                        <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
-                                        <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
-                                    </nav>
-                                    <!-- /.social -->
-                                </div>
-                            </div>
-                            <!-- /.offcanvas-footer -->
-                        </div>
-                        <!-- /.offcanvas-body -->
-                    </div>
-                    <div class="navbar-other ms-lg-4">
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <li class="nav-item d-none d-md-block">
-                                <a href="#" id="employer_login" class="btn btn-sm btn-primary rounded-pill roll-link">
-                                    <span data-title="Coming Soon" href="#">Employer Login</span>
-                                </a>
-                            </li>
-                            <li class="nav-item d-lg-none">
-                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
-                            </li>
-                        </ul>
-                        <!-- /.navbar-nav -->
-                    </div>
-                    <!-- /.navbar-other -->
+              <div class="container flex-lg-row flex-nowrap align-items-center">
+                <div class="navbar-brand w-100">
+                  <a href="https://www.qubehealth.com/">
+                    <img class="logo-dark" src="./assets/img/logo.svg" srcset="./assets/img/logo.svg" alt="" />
+                    <img class="logo-light" src="./assets/img/logo-light.svg"
+                        srcset="./assets/img/logo-light.svg" alt="" />
+                </a>
                 </div>
-                <!-- /.container -->
+                <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                  <div class="offcanvas-header d-lg-none">
+                      <!-- <h3 class="text-white fs-30 mb-0">QubeCrew</h3> -->
+                      <a href="https://www.qubehealth.com/" style="width: 100%;">
+                        <img class="logo-light" src="./assets/img/logo-light.svg"
+                        srcset="./assets/img/logo-light.svg" alt="" />
+                      </a>
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                          aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                      <ul class="navbar-nav">
+                          <li class="nav-item">
+                              <a class="nav-link" href="careers.html">Join the #QubeCrew</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="partners.html">Healthcare Provider Partners
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="news.html">In the News
+                                <div class="activeLine" id="inthenewsline"></div>
+                            </a>
+                          </li>
+                      </ul>
+                      <!-- /.navbar-nav -->
+                      <div class="offcanvas-footer d-lg-none">
+                          <div>
+                              <a href="mailto:contact@qubehealth.com" class="link-inverse">contact@qubehealth.com</a>
+                              <nav class="nav social social-white mt-4">
+                                  <a href="https://www.linkedin.com/company/qubehealth/" target="_blank"><i class="uil uil-linkedin"></i></a>
+                                  <a href="https://www.facebook.com/QubeHealth" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                                  <a href="https://www.instagram.com/qube.health/" target="_blank"><i class="uil uil-instagram"></i></a>
+                                  <a href="https://www.youtube.com/@qubehealth" target="_blank"><i class="uil uil-youtube"></i></a>
+                              </nav>
+                              <!-- /.social -->
+                          </div>
+                      </div>
+                      <!-- /.offcanvas-footer -->
+                  </div>
+                  <!-- /.offcanvas-body -->
+                </div>
+                <div class="navbar-other ms-lg-4">
+                  <ul class="navbar-nav flex-row align-items-center ms-auto">
+                    <li class="nav-item d-none d-md-block">
+                      <!-- Employer Login -->
+                      <a href="#" id="employer_login" class="btn btn-sm btn-primary rounded-pill roll-link">
+                        <span data-title="Coming Soon" href="#">Employer Login</span>
+                      </a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                      <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                    </li>
+                  </ul>
+                  <!-- /.navbar-nav -->
+                </div>
+                <!-- /.navbar-other -->
+              </div>
+              <!-- /.container -->
             </nav>
             <!-- /.navbar -->
-        </header>
-        <!-- /header -->
-        <!-- /header --><section class="wrapper bg-soft-primary">
-      <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
-        <div class="row" style="margin-top: 3%; ">
-          <div class="col-md-10 col-xl-8 mx-auto">
-            <div class="post-header">
-              <div class="post-category text-line">
-                <a href="#" class="hover" rel="category">Business Today</a>
+          </header>
+          <!-- /header -->
+
+        <section class="wrapper bg-soft-primary">
+            <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
+              <div class="row" id="margintop10">
+                <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
+                    <h1 class="display-1 mb-3" style="color: white;">Qube In The News</h1>
+                  <p class="lead px-lg-5 px-xxl-8 mb-1" style="color: white;">We’re regularly featured in the media. Take a look.</p>
+                </div>
+                <!-- /column -->
               </div>
-              <!-- /.post-category -->
-              <h1 class="mb-4" style="color: white;">Why pet care industry is witnessing a fast-<br>paced growth after Covid-19 pandemic?</h1>
-              <!-- /.post-meta -->
+              <!-- /.row -->
             </div>
-            <!-- /.post-header -->
-          </div>
-          <!-- /column -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /section -->
-    <section class="wrapper bg-light">
-      <div class="container pb-14 pb-md-16">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <div class="blog single mt-n17">
-              <div class="card">
-                <figure class="card-img-top"><img src="./assets/img/news/new1.png" alt="" /></figure>
-                <div class="card-body">
-                  <div class="classic-view">
-                    <article class="post">
-                      <div class="post-content mb-5">
-                        <p>
-                            According to industry experts, pet care services and pet care products market in India is about $1.2 billion with 60% along coming from products alone.While several consumer markets during Covid-19 pandemic recorded a slump, the healthcare crisis triggered a fast-paced growth for pet care industry in India.
-                            Ranging from pet care, food products and pet health insurance, the industry is scaling up fast.<br>
-                            According to industry experts, pet care services and pet care products market in India is about $1.2 billion with 60% along coming from products alone. In the industry, pet food, pet treats and pet services are seeing a good growth. According to Indian insurance aggregator and multinational financial technology company PolicyBazaar.com, the Indian pet insurance market also has recently witnessed an uptick in the insurance market.<br>“In fact, India is one of the fastest-growing pet care markets in the world. It is expected to grow at 14% a year to reach $490 million (Rs 3,618 crore) by the end of the year 2022,” Tarun Mathur , Co-Founder & Chief Business Officer at PolicyBazaar.com said.<br>
-                            “The reason behind pet care segment growth is coupled with higher disposable income, nuclear families, changing attitudes toward pets and pet owners, an increase in awareness about pet health, etc. which collectively drives more people to look for comprehensive pet insurance covers,” he said.There are several insurance companies that offer insurance policies for pets in India. Policybazaar has listed a few companies providing pet insurance such as Oriental Insurance Company Limited, Bajaj Allianz General Insurance Company Limited, The New India Assurance Company Limited, Go Digit General Insurance Limited, Future Generali, etc.
-                            “As per Policybazaar’s recent survey, it was observed that as many as 70% of the pet owners considered buying a policy, however, only 10% of them actually bought one. With growing awareness about such product offerings, the growing pet populace, rising vet care costs, and increasing humanization of pets would incline more insurers to tap this potential segment and experience their business boom,” said Mathur.<br><br>
-
-                            Few start-ups are offering easy ways of bearing hefty expenditure on pet health when needed. QubeHealth, a fintech-cum-healthtech company is offering a product based on the no cost EMI concept named 'healthcare now and pay later' from. The company offers payment products through which an employee offers the option through his/her employer can swipe the card for medical bills for their pets along with their own health costs and convert it into no-cost EMIs of up to 24 months.<br><br>
-
-                            “There is clearly a need for health insurance and medical loan products to address this need. Pet parents would certainly pay the necessary health insurance premiums that cover advanced care (cancer etc.) procedures that develop in the later years of the pet, while medical lending programs can cover other routine expenses. This is a massive industry that is growing fast, with a clear opportunity for disruptors,” Chris George, CEO & Co-founder of QubeHealth.<br>
-                            “Data not available as there is no consensus on actual number of pets in India. However, we can estimate that in tier 1 markets, this may be roughly around Rs 10,000 per year. The pet care market has been growing at about 28% CAGR for over a decade that is expected to cross $5 billion in the coming few years. This is considered a recession proof industry. We have also seen a large growth rate in new pet adoption rate due to Covid-19,” said George.
-                            Especially after the covid-19 pandemic, there has been a trend of adopting pets as majority of people started working from home. “The increase in pet owners saw a significant surge, especially during the pandemic. A number of people filled their void by adopting a pet. This trend saw a rise in demand not only from metros but also from tier II and III cities during and after the pandemic,” said Mathur.<br><br>
-
-                            According to industry reports the number of new insurance customers has skyrocketed after the pandemic. As per a report from Consumer intelligence research, over 10% more pet insurance products were available in the market than after the lockdown. The pet market in India is currently concentrated in Tier 2 and 3 cities.<br>
-                            "The pandemic brought fresh attention to pet health care. We have seen even pet parents in Tier 2 and 3 consider the health needs of their pets through increased veterinary teleconsultations. In fact, 40% of our veterinary tele-consultations are for pets in Tier 3 towns. Pet products like food and treats are increasingly seeing differentiated health focused variants,” said Siddharth Darbha, Co-founder, Wagr, a Super-App for Pet Care.
-                        </p>
-                      </div>
-                      <!-- /.post-content -->
-                      <div class="align-items-right" style="text-align: right; ">
-                              <a href="#" class="btn btn-primary rounded-pill">See the Original Articles</a>
-                      </div>
-                      <!-- /.post-footer -->
-                    </article>
-                    <!-- /.post -->
-                  </div>
-                  <!-- /.classic-view -->
-                  <hr />
-                  <!-- /.author-info -->
-                  <h3 class="mb-6">You Might Also Like</h3>
-                  <div class="swiper-container blog grid-view mb-16" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1">
-                    <div class="swiper">
-                      <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                          <article>
-                            <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="./assets/img/news/new4.png" alt="" /></a>
+            <!-- /.container -->
+          </section>
+          <!-- /section -->
+          <section class="wrapper bg-light">
+            <div class="container pb-14 pb-md-16">
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+                  <div class="blog classic-view mt-n17">
+                    <?php
+                    if(isset($data) and is_array($data) and isset($data[0])){ ?>
+                      <article class="post">
+                          <div class="card">
+                            <figure class="card-img-top overlay overlay-1 hover-scale">
+                              <a href="NW-<?=$data[0]['id'].'-'.$data[0]['url']?>.html"><img src="<?php echo $base_url.$data[0]['image']; ?>" alt="" /></a>
                               <figcaption>
                                 <h5 class="from-top mb-0">Read More</h5>
                               </figcaption>
                             </figure>
-                            <div class="post-header">
-                              <div class="post-category text-line">
-                                <a href="#" class="hover" rel="category">EF Health Care.cOM</a>
+                            <div class="card-body">
+                              <div class="post-header">
+                                <div class="post-category text-line">
+                                  <a class="hover" rel="category"><?=$data[0]['title']?></a>
+                                </div>
+                                <!-- /.post-category -->
+                                <h2 class="post-title mt-1 mb-0">
+                                  <a class="link-dark" href="NW-<?=$data[0]['id'].'-'.$data[0]['url']?>.html">
+                                    <?=$data[0]['main_title']?>
+                                  </a>
+                                </h2>
                               </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3">
-                                <a class="link-dark" href="./blog-post.html">Embedded Finance: Tech makes private healthcare affordable</a>
-                              </h2>
-                              <p>
-                                Millennials with well-paid jobs and employer health insurance may not be worrying about hospitalization expenses.
-                              </p>
-
+                              <!-- /.post-header -->
+                              <div class="post-content">
+                                <!-- <p> -->
+                                  <?php
+                                  // $description = substr($data[0]['description'], 0, 400);
+                                  // $description = trim($description);
+                                  // $description = htmlspecialchars_decode($description);
+                                    // echo $description;
+                                  ?>
+                                <!-- </p> -->
+                              </div>
+                              <!-- /.post-content -->
                             </div>
-                          </article>
-                          <!-- /article -->
-                        </div>
-                        <!--/.swiper-slide -->
-                        <div class="swiper-slide">
-                          <article>
-                            <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="./assets/img/news/new5.png" alt="" /></a>
+                            <!--/.card-body -->
+                          </div>
+                          <!-- /.card -->
+                      </article>
+                      <!-- /.post -->
+                    <?php }
+                    if(isset($data) and is_array($data) and isset($data[1])){ ?>
+                      <article class="post">
+                        <div class="card">
+                            <figure class="card-img-top overlay overlay-1 hover-scale">
+                              <a href="NW-<?=$data[1]['id'].'-'.$data[1]['url']?>.html"><img src="<?php echo $base_url.$data[1]['image']; ?>" alt="" /></a>
                               <figcaption>
-                                <h5 class="from-top mb-0">Read More</h5>
+                                  <h5 class="from-top mb-0">Read More</h5>
                               </figcaption>
                             </figure>
+                            <div class="card-body">
                             <div class="post-header">
-                              <div class="post-category text-line">
-                                <a href="#" class="hover" rel="category">News 18</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Do You Believe In Saving Money? Know Why Keeping A Health Budget Is Useful</a></h2>
-                              <p>
-                                World Health Day 2023: Balancing your health budget and finances can be challenging.
-                              </p>
+                                <div class="post-category text-line">
+                                  <a class="hover" rel="category"><?=$data[1]['title']?></a>
+                                </div>
+                                <!-- /.post-category -->
+                                <h2 class="post-title mt-1 mb-0">
+                                  <a class="link-dark" href="NW-<?=$data[1]['id'].'-'.$data[1]['url']?>.html">
+                                    <?=$data[1]['main_title']?>
+                                  </a>
+                                </h2>
                             </div>
                             <!-- /.post-header -->
-                          </article>
-                          <!-- /article -->
+                            <div class="post-content">
+                              <?php
+                              // $description = substr($data[1]['description'], 0, 400);
+                              // $description = trim($description);
+                              // $description = htmlspecialchars_decode($description);
+                                // echo $description;
+                              ?>
+                            </div>
+                            <!-- /.post-content -->
+                            </div>
+                            <!--/.card-body -->
                         </div>
-                        <!--/.swiper-slide -->
-                      </div>
-                      <!--/.swiper-wrapper -->
-                    </div>
-                    <!-- /.swiper -->
+                      <!-- /.card -->
+                      </article>
+                      <!-- /.post -->
+                    <?php } ?>
                   </div>
-                  <!-- /.swiper-container -->
+                  <!-- /.blog -->
+                   <!-- /.blog -->
+                   <?php if(isset($data) and is_array($data) and count($data) > 2){ ?>
+                     <div class="blog grid grid-view">
+                        <div class="row isotope gx-md-8 gy-8 mb-8">
+                          <?php  for ($x = 2; $x < 6; $x++) {
+                            if(isset($data[$x]) and $data[$x] != NULL and is_array($data[$x])){
+                            ?>
+                              <article class="item post col-md-6">
+                                <div class="card">
+                                  <figure class="card-img-top overlay overlay-1 hover-scale">
+                                    <a href="NW-<?=$data[$x]['id'].'-'.$data[$x]['url']?>.html"><img src="<?php echo $base_url.$data[$x]['image']; ?>" alt="" /></a>
+                                    <figcaption>
+                                      <h5 class="from-top mb-0">Read More</h5>
+                                    </figcaption>
+                                  </figure>
+                                  <div class="card-body">
+                                    <div class="post-header">
+                                      <div class="post-category text-line">
+                                        <a class="hover" rel="category"><?=$data[$x]['title']?></a>
+                                      </div>
+                                      <!-- /.post-category -->
+                                      <h2 class="post-title mt-1 mb-0" style=" min-height: 150px; ">
+                                        <a class="link-dark" href="NW-<?=$data[$x]['id'].'-'.$data[$x]['url']?>.html">
+                                          <?=$data[$x]['main_title']?>
+                                        </a>
+                                      </h2>
+                                    </div>
+                                    <!-- /.post-header -->
+                                    <div class="post-content">
+                                        <?php
+                                          // $description = substr($data[$x]['description'], 0, 100);
+                                          // $description = trim($description);
+                                          // $description = htmlspecialchars_decode($description);
+                                          // echo $description;
+                                        ?>
+                                    </div>
+                                    <!-- /.post-content -->
+                                  </div>
+                                  <!--/.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </article>
+                              <?php
+                            }
+                          } ?>
+                        </div>
+                      <!-- /.row -->
+                      </div>
+                    <?php }
+                    $page_count = ceil($total_count/6);
+                    ?>
+                  <!-- /.blog -->
+
+                    <nav class="d-flex" aria-label="pagination">
+                      <ul class="pagination">
+                        <li class="page-item <?php if($page == 1){ echo 'disabled'; } ?>">
+                          <a class="page-link" href="news.html?page=<?=$page-1?>" aria-label="Previous">
+                            <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
+                          </a>
+                        </li>
+                        <?php
+                        $last_page_disable = '';
+                        for ($x = 0; $x < $page_count; $x++) { ?>
+                          <li class="page-item <?php if($page == ($x+1)){ echo "active"; } ?>">
+                            <a class="page-link" href="news.html?page=<?=$x+1?>"><?=$x+1?></a>
+                          </li>
+                        <?php } ?>
+                        <li class="page-item <?php if($page >= $page_count){ echo 'disabled'; } ?>">
+                          <a class="page-link" href="news.html?page=<?=$x+1?>" aria-label="Next">
+                            <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
+                          </a>
+                        </li>
+                      </ul>
+                      <!-- /.pagination -->
+                    </nav>
                 </div>
-                <!-- /.card-body -->
+                <!-- /column -->
               </div>
-              <!-- /.card -->
+              <!-- /.row -->
             </div>
-            <!-- /.blog -->
-          </div>
-          <!-- /column -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /section -->
+            <!-- /.container -->
+          </section>
+          <!-- /section -->
+
     </div>
     <!-- /.content-wrapper -->
     <footer class="bg-navy text-inverse fut-bg">
@@ -287,6 +358,7 @@
                             <li><a href="terms.html#user-policy"> Our Financing Partners</a> </li>
                             <li><a href="terms.html#copyrights"> Our Banking Partner</a> </li>
                             <li><a href="terms.html#cookies"> Most Important Terms of Product</a> </li>
+                            <li><a href="terms.html#termsyesbank"> Terms and Conditions for Yes Bank Prepaid Instruments </a> </li>
                         </ul>
                     </div>
                     <!-- /.widget -->

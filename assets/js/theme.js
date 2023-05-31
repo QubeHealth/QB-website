@@ -785,6 +785,7 @@ var theme = {
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
                 fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddClientData", {
+                // fetch("http://13.71.81.211/QubeHealthWebPanel/api/Form/AddClientData", {
                   method: "post",
                   body: data
                 }).then((data) => {
@@ -820,6 +821,7 @@ var theme = {
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
                 fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddContactData", {
+                // fetch("http://13.71.81.211/QubeHealthWebPanel/api/Form/AddContactData", {
                   method: "post",
                   body: data
                 }).then((data) => {
@@ -835,6 +837,7 @@ var theme = {
                     if(alertClass && txt) {
                       // form.querySelector(".messages").insertAdjacentHTML('beforeend', alertBox);
                       $('#thankyou_modal').modal('show');
+                      document.getElementById("thank_you_div_partner").style.display = "inline";
                       form.reset();
                     }
                     document.getElementById("send_message").style.display = "inline";
@@ -852,6 +855,7 @@ var theme = {
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
                 fetch("https://www.qubehealth.com/QubeHealthWebPanel/api/Form/AddJoinData", {
+                // fetch("http://13.71.81.211/QubeHealthWebPanel/api/Form/AddJoinData", {
                   method: "post",
                   body: data
                 }).then((data) => {
